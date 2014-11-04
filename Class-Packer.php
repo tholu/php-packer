@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Packer v3.1 (beta?), PHP port
- * @author Dean Edwards, fixed by Nao/Wedge
+ * @author Dean Edwards, fixed by Nao (Wedge.org)
  * @license http://www.opensource.org/licenses/mit-license.php
  * @from http://code.google.com/p/base2/source/browse/trunk/src/apps/packer#packer%2Fphp
  */
