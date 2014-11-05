@@ -7,12 +7,9 @@
  * @from http://code.google.com/p/base2/source/browse/trunk/src/apps/packer#packer%2Fphp
  */
 
+// Initialize static object properties
 Parser::$dictionary = new RegGrp(Parser::$dictionary);
-
-// Initialize static object properties
 Packer::$data = new Parser(Packer::$data);
-
-// Initialize static object properties
 Minifier::$clean = Packer::$data->union(new Parser(Minifier::$clean));
 Minifier::$concat = new Parser(Minifier::$concat);
 Minifier::$concat->merge(Packer::$data);
