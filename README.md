@@ -14,11 +14,9 @@ Simply run `composer require tholu/php-packer`.
 <?php
 require 'vendor/autoload.php';
 
-// init
-include('vendor/tholu/php-packer/init.php');
-
 $js = file_get_contents('test.js');
 $packer = new Packer;
+// function pack($script = '', $base62 = false, $shrink = true, $privates = false)
 $packed_js = $packer->pack($js,true,true,true);
 echo $packed_js;
 ```
