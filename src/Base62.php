@@ -26,7 +26,7 @@ return p}(\'%1\',%2,%3,\'%4\'.split(\'|\'),0,{}))';
 
   public function getPattern()
   {
-    $words = $this->words->size() == 0 ? '\\x0' : preg_replace(array('/\\|{2,}/', '/^\\|+|\\|+$/'), array('|', ''), implode('|', $this->words->map(strval)));
+    $words = $this->words->size() == 0 ? '\\x0' : preg_replace(array('/\\|{2,}/', '/^\\|+|\\|+$/'), array('|', ''), implode('|', $this->words->map('strval')));
     return '/\\b(' . $words . ')\\b/';
   }
 
@@ -171,7 +171,7 @@ return p}(\'%1\',%2,%3,\'%4\'.split(\'|\'),0,{}))';
 
   private function getKeyWords()
   {
-    return preg_replace('/\\|+$/', '', implode('|', $this->words->map(strval)));
+    return preg_replace('/\\|+$/', '', implode('|', $this->words->map('strval')));
   }
 
   public function put($key, $item = NULL)

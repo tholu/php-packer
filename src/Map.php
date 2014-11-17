@@ -27,7 +27,10 @@ class Map implements Iterator
 
   public function get($key)
   {
-    return $this->values[(string)$key];
+    if(isset($this->values[(string)$key]))
+      return $this->values[(string)$key];
+    else
+      return;
   }
 
   public function getKeys()
