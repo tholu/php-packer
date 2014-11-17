@@ -9,6 +9,13 @@
         {
             "name": "Thomas Lutz",
             "email": "thomaslutz.de@gmail.com"
+        },
+        {
+            "name": "Nao",
+            "email": "naolog@gmail.com"
+        },
+        {
+            "name": "Dean Edwards"
         }
     ],
     "require": {
