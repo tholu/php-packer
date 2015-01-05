@@ -21,17 +21,17 @@
  * ----------------------------------------------------------------------
  * 
  * examples of usage :
- * $myPacker = new JavaScriptPacker($script, 62, true, false);
+ * $myPacker = new Packer($script, 62, true, false);
  * $packed = $myPacker->pack();
  * 
  * or
  * 
- * $myPacker = new JavaScriptPacker($script, 'Normal', true, false);
+ * $myPacker = new Packer($script, 'Normal', true, false);
  * $packed = $myPacker->pack();
  * 
  * or (default values)
  * 
- * $myPacker = new JavaScriptPacker($script);
+ * $myPacker = new Packer($script);
  * $packed = $myPacker->pack();
  * 
  * 
