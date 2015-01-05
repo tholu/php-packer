@@ -1,22 +1,36 @@
 php-packer
 ==========
 
-A PHP version of Packer, JavaScript obfuscation library originally created by Dean Edwards, fixed by Nao (Wedge.org).
-Re-added shorting of variable names and base62 encoding.
+A PHP version of Packer, JavaScript obfuscation library originally created by Dean Edwards, ported to PHP by Nicolas Martin.
+Packed for composer by Thomas Lutz.
 
 ## Installation
 
 Simply run `composer require tholu/php-packer`.
 
-## Usage
+## Usage (slightly changed from previous used implementation!)
 
 ```php
 <?php
 require 'vendor/autoload.php';
 
 $js = file_get_contents('test.js');
-$packer = new Packer;
-// function pack($script = '', $base62 = false, $shrink = true, $privates = false)
-$packed_js = $packer->pack($js,true,true,true);
+
+/*
+ * params of the constructor :
+ * $script:       the JavaScript to pack, string.
+ * $encoding:     level of encoding, int or string :
+ *                0,10,62,95 or 'None', 'Numeric', 'Normal', 'High ASCII'.
+ *                default: 62.
+ * $fastDecode:   include the fast decoder in the packed result, boolean.
+ *                default : true.
+ * $specialChars: if you are flagged your private and local variables
+ *                in the script, boolean.
+ *                default: false.
+ */
+
+// $packer = new Packer($script, $encoding, $fastDecode, $specialChars);
+$packer = new Packer($js, 'Normal', true, true);
+$packed_js = $packer->pack();
 echo $packed_js;
 ```
