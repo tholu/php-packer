@@ -65,7 +65,7 @@
  *   UTF-8 in your files... 
  */
  
-namespace Tholu/Packer;
+namespace Tholu\Packer;
 
 
 class Packer {
