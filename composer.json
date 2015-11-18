@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Composer\\Packer\\": "src"
+            "Tholu\\Packer\\": "src"
         }
     }
 }
