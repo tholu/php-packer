@@ -77,6 +77,7 @@ class Packer {
 	private $_encoding = 62;
 	private $_fastDecode = true;
 	private $_specialChars = false;
+	private $_removeSemicolons = true;
 	
 	private $LITERAL_ENCODING = array(
 		'None' => 0,
@@ -85,7 +86,7 @@ class Packer {
 		'High ASCII' => 95
 	);
 	
-	public function __construct($_script, $_encoding = 62, $_fastDecode = true, $_specialChars = false)
+	public function __construct($_script, $_encoding = 62, $_fastDecode = true, $_specialChars = false, $_removeSemicolons = true)
 	{
 		$this->_script = $_script . "\n";
 		if (array_key_exists($_encoding, $this->LITERAL_ENCODING))
@@ -93,6 +94,7 @@ class Packer {
 		$this->_encoding = min((int)$_encoding, 95);
 		$this->_fastDecode = $_fastDecode;	
 		$this->_specialChars = $_specialChars;
+		$this->_removeSemicolons = $_removeSemicolons;
 	}
 	
 	public function pack() {
@@ -137,8 +139,10 @@ class Packer {
 		// remove: ;;; doSomething();
 		if ($this->_specialChars) $parser->add('/;;;[^\\n\\r]+[\\n\\r]/');
 		// remove redundant semi-colons
-		$parser->add('/\\(;;\\)/', self::IGNORE); // protect for (;;) loops
-		$parser->add('/;+\\s*([};])/', '$2');
+		if ($this->_removeSemicolons) {
+			$parser->add('/\\(;;\\)/', self::IGNORE); // protect for (;;) loops
+			$parser->add('/;+\\s*([};])/', '$2');
+		}
 		// apply the above
 		$script = $parser->exec($script);
 
