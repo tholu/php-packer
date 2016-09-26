@@ -31,8 +31,8 @@ $js = file_get_contents('test.js');
  *                    default: true.
  */
 
-// $packer = new Packer($script, $encoding, $fastDecode, $specialChars, $removeSemicolons);
-$packer = new Packer($js, 'Normal', true, false, true);
+// $packer = new Tholu\Packer\Packer($script, $encoding, $fastDecode, $specialChars, $removeSemicolons);
+$packer = new Tholu\Packer\Packer($js, 'Normal', true, false, true);
 $packed_js = $packer->pack();
 echo $packed_js;
 ```
